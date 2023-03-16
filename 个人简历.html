@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简历</title>
+    <style>
+        body {
+            background-image: url("img/img.jpg") ;
+            background-size:100% 100%;
+            background-attachment:fixed;
+        }
+
+        .el-descriptions__body .el-descriptions__table .el-descriptions-item__cell {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .el-collapse-item__header {
+            font-size: 20px;
+            color: #416ae2;
+        }
+
+        .el-collapse-item__content {
+            font-size: 15px;
+        }
+
+        .el-tree-node__label {
+            font-size: 18px;
+            color: darkblue;
+            white-space: pre-line;
+
+        }
+
+        .el-carousel__item h3 {
+            color: #b3e19d;
+            font-size: 14px;
+            opacity: 0.75;
+            line-height: 150px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #2165b0;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+
+        .block {
+            width: 500px;
+        }
+
+        .shadow {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <el-tabs type="border-card">
+            <el-tab-pane label="基本信息">
+                <!--个人信息-->
+                <div>
+                    <el-descriptions :border='true'
+                                     title='个人信息' direction='descriptions' :size='size' :column="3">
+                        <el-descriptions-item label='姓名' align="center">
+                            葛宇翔
+                        </el-descriptions-item>
+                        <el-descriptions-item label='性别'>
+                            男
+                        </el-descriptions-item>
+                        <el-descriptions-item label='民族'>
+                            汉族
+                        </el-descriptions-item>
+                        <el-descriptions-item label='电话'>
+                            18698800103
+                        </el-descriptions-item>
+                        <el-descriptions-item label='邮箱'>
+                            2207785827@QQ.com
+                        </el-descriptions-item>
+                        <el-descriptions-item label='年级'>
+                            大二
+                        </el-descriptions-item>
+                        <el-descriptions-item label='就读学校'>
+                            杭州电子科技大学
+                        </el-descriptions-item>
+                        <el-descriptions-item label='专业'>
+                            计算机科学与技术(中外合作)
+                        </el-descriptions-item>
+                        <el-descriptions-item label='照片'>
+                            <img src="img/photo.jpg" width="100">
+                        </el-descriptions-item>
+                    </el-descriptions>
+                </div>
+                <!--简介-->
+                <div>
+                    <el-collapse v-model="activeNames" @change="handleChange">
+                        <el-collapse-item title="教育背景" name="1">
+                            <div>目前就读于杭州电子科技大学，计算机科学与技术专业，本科，大二。</div>
+                        </el-collapse-item>
+                        <el-collapse-item title="主修科目" name="2">
+                            <div>java程序设计，go语言程序设计，c语言程序设计，数据结构与算法，MySQL数据库，网络开发基础</div>
+                            <div>javaweb(包括tomcat, servlet, mybatis等)，操作系统，计算机组成原理，计算机网络</div>
+                            <div>计算机科学导论，前端基础(html+css+js, ajax+axios, vue等)。</div>
+                        </el-collapse-item>
+                        <el-collapse-item title="在校职务" name="3">
+                            <div>1、担任班长，安排班内各项事务，负责与辅导员及院内领导沟通。</div>
+                            <div>2、担任寝室楼层长，协助生活老师工作，为同学创造舒适、安逸的生活环境。</div>
+                            <div>3、曾经担任学院篮球队成员，增强体能，丰富课余生活。</div>
+                            <div>4、曾担任高数课代表，加强沟通能力，提高自身素养与数学思维。</div>
+                        </el-collapse-item>
+
+                    </el-collapse>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="在校经历">
+                <img src="img/border.png" width="700">
+                <div>
+                    <ol>
+                        <li>学业方面: 互联网+校赛三等奖、数学建模比赛校级参赛奖、英语四级470+，
+                            获得过两次院级三等奖学金。</li>
+                        <li>体育方面: 全国大学生篮球3V3比赛校级参赛奖、篮球班赛院级团体第一名。</li>
+                        <li>职务方面: 获得院级2022年度优秀学生干部称号，军训时作为学生代表发言。</li>
+                        <li>思想方面: 目前为共青团员，已提交入党申请书。</li>
+                    </ol>
+                </div>
+                <img src="img/社会活动.png" width="700">
+                <div>
+                    <ol>
+                        <li>参加多项志愿服务: 担当研究生复试考核志愿者、退役士兵学生专升本考试志愿者、亚运会志愿者面试活动志愿者等。</li>
+                        <li>参加社会实践活动：大一寒假参加学校组织的母校回访活动；大一暑假参加学校组织的乡村振兴主题社会实践活动，<br>
+                            亲身到浙江省淳安县文屏村基层考察；积极参与杭州亚运会志愿者选拔活动，并具备资格。</li>
+                    </ol>
+                </div>
+                <img src="img/平时成绩.png" width="700">
+                <div>
+                    <dl>
+                        <dd>大一上学期平均绩点4.01，院内排名前25%，其中高等数学、java程序设计、体育等科目为满绩点，该学期获得院级三等奖学金。</dd>
+                        <dd>大一下学期平均绩点3.97，院内排名前25%，其中高等数学满绩点，该学期获得院级三等奖学金。</dd>
+                        <dd>大二上学期平均绩点4.20，其中网络开发、数据库、物理信息系统设计原理等科目为满绩点。(编写简历时该学期未公布院内排名及奖学金结果)</dd>
+                    </dl>
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="项目经验">
+
+                <table width="100%" height="800px" border="1" cellspacing="0">
+                    <tr>
+                        <td colspan="2">
+                            <el-input
+                                placeholder="输入关键字进行过滤"
+                                v-model="filterText">
+                            </el-input>
+
+                            <el-tree
+                                    :class="filter-tree"
+                                    :data="data"
+                                    :props="defaultProps"
+                                    :default-expand-all="true"
+                                    :filter-node-method="filterNode"
+                                    :highlight-current="true"
+                                    ref="tree">
+                            </el-tree></td>
+
+                    </tr>
+                    <tr>
+                        <td><img src="img/brand01.png" width="700px"></td>
+                        <td><img src="img/brand02.png" width="700px"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/brand03.png" width="700px"></td>
+                        <td><img src="img/mhl01.png" width="700px"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/mhl02.png" width="700px"></td>
+                        <td><img src="img/mhl03.png" width="700px"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/qq01.png" width="700px"></td>
+                        <td><img src="img/qq02.png" width="700px"></td>
+                    </tr>
+                </table>
+
+
+
+
+
+            </el-tab-pane>
+            <el-tab-pane label="个人评价">
+                <div class="shadow">
+                    <img src="img/个人评价.png" width="1000px">
+                </div>
+
+            </el-tab-pane>
+        </el-tabs>
+    </div>
+</body>
+
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
+
+<script>
+    new Vue({
+        el: "#app",
+
+        data() {
+            return {
+                size: '',
+                activeNames: ['1'],
+                rowCenter:{
+                    "text-align":"center"
+                },
+
+                filterText: '',
+                data: [{
+                    id: 1,
+                    label: '品牌管理系统(javaweb)',
+                    children: [{
+                        id: 2,
+                        label: '项目简介',
+                        children: [{
+                            id: 3,
+                            label: '基于B/S模式的网站系统，此网站提供的功能有用户登录、注册以及记住密码，用户对于各个品牌信息进行增删改查的操作'
+                        }]
+                    }, {
+                        id: 4,
+                        label: '开发相关',
+                        children: [{
+                            id: 5,
+                            label: '开发环境: jdk 1.8'
+                        },{
+                            id: 6,
+                            label: '开发语言: java'
+                        },{
+                            id: 7,
+                            label: '开发工具: IDEA'
+                        },{
+                            id: 8,
+                            label: '开发人数: 1人'
+                        },{
+                            id: 9,
+                            label: '开发技术: java, mysql数据库, mybatis框架, maven相关组件, tomcat服务器, html+css+js, servlet, ajax+axios, http协议, cookie, filter'
+                        }]
+                    }]
+                }, {
+                    id: 10,
+                    label: '满汉楼点餐系统(jdbc)',
+                    children: [{
+                        id: 11,
+                        label: '项目简介',
+                        children: [{
+                            id: 12,
+                            label: '基于编译器工作台输入输出信息，用户可以进行登录操作，提供预定餐桌、显示餐桌状态、显示菜品、点菜和结账等服务'
+                        }]
+                    }, {
+                        id: 13,
+                        label: '开发相关',
+                        children: [{
+                            id: 14,
+                            label: '开发环境: jdk 1.8'
+                        },{
+                            id: 15,
+                            label: '开发语言: java'
+                        },{
+                            id: 16,
+                            label: '开发工具: eclipse'
+                        },{
+                            id: 17,
+                            label: '开发人数: 1人'
+                        },{
+                            id: 18,
+                            label: '开发技术: java, mysql数据库, jdbc操作, 德鲁伊链接池等'
+                        }]
+                    }]
+                }, {
+                    id: 19,
+                    label: '网络聊天项目(TCP/IP)',
+                    children: [{
+                        id: 20,
+                        label: '项目简介',
+                        children: [{
+                            id: 21,
+                            label: '利用编译器控制台实现信息输入输出。用户可以用账号密码登录，可以私发及群发消息或文件，可查看在线用户列表。'
+                        }]
+                    }, {
+                        id: 22,
+                        label: '开发相关',
+                        children: [{
+                            id: 23,
+                            label: '开发环境: jdk 1.8'
+                        },{
+                            id: 24,
+                            label: '开发语言: java'
+                        },{
+                            id: 25,
+                            label: '开发工具: eclipse'
+                        },{
+                            id: 26,
+                            label: '开发人数: 1人'
+                        },{
+                            id: 27,
+                            label: '开发技术: java, TCP/IP协议, IO流及线程'
+                        }]
+                    }]
+                }],
+                defaultProps: {
+                    children: 'children',
+                    label: 'label'
+                }
+
+            }
+        },
+        methods: {
+            handleChange(val) {
+                console.log(val);
+            },
+
+            filterNode(value, data) {
+                if (!value) return true;
+                return data.label.indexOf(value) !== -1;
+            },
+        },
+
+        watch: {
+            filterText(val) {
+                this.$refs.tree.filter(val);
+            }
+        },
+
+    })
+</script>
+
+</html>
